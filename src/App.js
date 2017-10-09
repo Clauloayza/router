@@ -82,7 +82,7 @@ class Teachers extends Component{
   }
 }
 
-const coursesList = (items) => {
+const courseslist = (items) => {
   const list= items.map((item, index) => {
       return (
               <li className='course' key={index}>
@@ -211,19 +211,15 @@ class Courses extends Component{
          </ul>
       </div>
       <Switch> 
-           <Route exact path= "/courses" 
-                  render={()=><Redirect to="/courses/html" /> } />
-
-           <Route path = "/courses/html" render = {()=><coursesList item={this.html}/>} />
-           <Route path = "/courses/css" render = {()=><coursesList item={this.css}/>}/>
-           <Route path = "/courses/javascript" render = {()=><coursesList item={this.js}/>}/>
+           <Route exact path= "/courses" render={()=><Redirect to="/courses/html" /> } />
+           <Route path = "/courses/html" render = {()=><courseslist item={this.html}/>} />
+           <Route path = "/courses/css" render = {()=><courseslist item={this.css}/>}/>
+           <Route path = "/courses/javascript" render = {()=><courseslist item={this.js}/>}/>
       </Switch>
      </div>
     );
   }
 }
-
-
 
 class App extends Component{
   render(){
@@ -232,10 +228,10 @@ class App extends Component{
       <div data-ractroot className="container">
         <header>
           <span className="icn-logo">
-            <img src="img/logo.PNG"/>
+            <img src="/img/logo.PNG"/>
           </span>
           <ul className="main-nav">
-            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink exact to="/">Home</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li> 
             <li><NavLink to="/teachers">Teachers</NavLink></li> 
             <li><NavLink to="/courses">Courses</NavLink></li> 
